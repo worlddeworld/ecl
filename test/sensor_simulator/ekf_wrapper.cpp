@@ -112,6 +112,20 @@ bool EkfWrapper::isWindVelocityEstimated() const
 	return control_status.flags.wind;
 }
 
+bool EkfWrapper::isTiltAligned() const
+{
+	filter_control_status_u control_status;
+	_ekf->get_control_mode(&control_status.value);
+	return control_status.flags.tilt_align;
+}
+
+bool EkfWrapper::isYawAligned() const
+{
+	filter_control_status_u control_status;
+	_ekf->get_control_mode(&control_status.value);
+	return control_status.flags.yaw_align;
+}
+
 Vector3f EkfWrapper::getPosition() const
 {
 	float temp[3];

@@ -71,6 +71,8 @@ public:
 	void disableExternalVisionAlignment();
 
 	bool isWindVelocityEstimated() const;
+	bool isTiltAligned() const;
+	bool isYawAligned() const;
 
 	Vector3f getPosition() const;
 	Vector3f getVelocity() const;

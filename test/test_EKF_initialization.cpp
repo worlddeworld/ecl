@@ -119,6 +119,8 @@ TEST_F(EkfInitializationTest, initializeWithZeroTilt)
 
 	_sensor_simulator.simulateOrientation(quat_sim);
 	_sensor_simulator.runSeconds(_init_tilt_period);
+	EXPECT_TRUE(_ekf_wrapper.isTiltAligned());
+	EXPECT_TRUE(_ekf_wrapper.isYawAligned());
 
 	initializedOrienationIsMatchingGroundTruth(quat_sim);
 	validStateAfterOrientationInitialization();
